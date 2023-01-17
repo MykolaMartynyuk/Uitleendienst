@@ -1,0 +1,81 @@
+﻿<Page x:Class="Uitleendienst.Models.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Uitleendienst.Models"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="8*"/>
+
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="1" Grid.Column="5" Command="{Binding ShowItemsCommand}" Content="Items" Background="{Binding ButtonItemSelectedColor}"/>
+            <Button Grid.Row="1" Grid.Column="3" Command="{Binding ShowPersonsCommand}" Content="Personen" Background="{Binding ButtonPersonSelectedColor}"/>
+            <Button Grid.Row="1" Grid.Column="1" Command="{Binding ShowLoansCommand}" Content="Uitleeningen" Background="{Binding ButtonLoanRecordSelectedColor}"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="1" Grid.Column="1" Command="{Binding AddObjectCommand}" Content="Toevoegen"/>
+            <Button Grid.Row="1" Grid.Column="3" Command="{Binding UpdateObjectCommand}" Content="Toepassen"/>
+            <Button Grid.Row="1" Grid.Column="5" Command="{Binding ReadObjectCommand}" Content="Lezen"/>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Row="3" Grid.Column="1"  SelectionMode="Single" ItemsSource="{Binding ListToShow}" SelectedItem="{Binding SelectedObject}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Content= "{Binding AsString}" Grid.Row="0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Page>
